@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Cliente - Sorveteria</title>
+  <link rel="stylesheet" href="cliente.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo(a), Cliente 🍦</h1>
+
+    <div class="menu">
+      <button onclick="mostrarSecao('pedido')">Fazer Pedido</button>
+      <button onclick="mostrarSecao('fidelidade')">Fidelidade</button>
+      <button onclick="mostrarSecao('historico')">Histórico</button>
+    </div>
+
+    <div class="conteudo">
+      <section id="pedido" class="secao ativa">
+        <h2>Fazer Pedido</h2>
+        <form>
+          <label for="sabor">Escolha o sabor:</label>
+          <select id="sabor">
+            <option>Chocolate</option>
+            <option>Morango</option>
+            <option>Baunilha</option>
+            <option>Menta</option>
+          </select>
+
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" id="quantidade" min="1" value="1">
+
+          <label for="pagamento">Forma de Pagamento:</label>
+          <select id="pagamento">
+            <option>Dinheiro</option>
+            <option>Cartão</option>
+            <option>Pix</option>
+          </select>
+
+          <button type="submit">Confirmar Pedido</button>
+        </form>
+      </section>
+
+      <section id="fidelidade" class="secao">
+        <h2>Pontos de Fidelidade</h2>
+        <p>Você possui <strong>45 pontos</strong>.</p>
+        <p>A cada R$10,00 em compras, você ganha 1 ponto.</p>
+      </section>
+
+      <section id="historico" class="secao">
+        <h2>Histórico de Pedidos</h2>
+        <ul>
+          <li>Pedido #001 - 15/05/2025 - R$ 18,00 - Pago</li>
+          <li>Pedido #002 - 28/05/2025 - R$ 12,00 - Pago</li>
+          <li>Pedido #003 - 03/06/2025 - R$ 15,00 - Pago</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSecao(id) {
+      document.querySelectorAll('.secao').forEach(secao => {
+        secao.classList.remove('ativa');
+      });
+      document.getElementById(id).classList.add('ativa');
+    }
+  </script>
+</body>
+</html>

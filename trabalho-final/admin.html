@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Administrador - Sorveteria</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Administração da Sorveteria 🧊</h1>
+
+    <div class="menu">
+      <button onclick="mostrarSecao('produtos')">Produtos</button>
+      <button onclick="mostrarSecao('categorias')">Categorias</button>
+      <button onclick="mostrarSecao('funcionarios')">Funcionários</button>
+      <button onclick="mostrarSecao('relatorios')">Relatórios</button>
+      <button onclick="mostrarSecao('fidelidade')">Fidelidade</button>
+    </div>
+
+    <div class="conteudo">
+      <!-- Produtos -->
+      <section id="produtos" class="secao ativa">
+        <h2>Gerenciar Produtos</h2>
+        <form>
+          <input type="text" placeholder="Nome do Produto" required>
+          <input type="text" placeholder="Descrição" required>
+          <input type="number" placeholder="Preço (R$)" required>
+          <select>
+            <option>Tradicional</option>
+            <option>Sem Lactose</option>
+          </select>
+          <button type="submit">Cadastrar Produto</button>
+        </form>
+      </section>
+
+      <!-- Categorias -->
+      <section id="categorias" class="secao">
+        <h2>Gerenciar Categorias</h2>
+        <form>
+          <input type="text" placeholder="Nome da Categoria" required>
+          <button type="submit">Adicionar Categoria</button>
+        </form>
+      </section>
+
+      <!-- Funcionários -->
+      <section id="funcionarios" class="secao">
+        <h2>Funcionários Cadastrados</h2>
+        <ul>
+          <li>João Silva - joao@email.com</li>
+          <li>Maria Lima - maria@email.com</li>
+        </ul>
+        <form>
+          <input type="text" placeholder="Nome do Funcionário" required>
+          <input type="email" placeholder="E-mail" required>
+          <button type="submit">Cadastrar Funcionário</button>
+        </form>
+      </section>
+
+      <!-- Relatórios -->
+      <section id="relatorios" class="secao">
+        <h2>Relatórios de Vendas</h2>
+        <p>Total vendido no mês: <strong>R$ 3.250,00</strong></p>
+        <p>Produtos mais vendidos: Chocolate, Morango</p>
+      </section>
+
+      <!-- Fidelidade -->
+      <section id="fidelidade" class="secao">
+        <h2>Configurações de Fidelidade</h2>
+        <form>
+          <label>Pontos por valor gasto (ex: 1 ponto a cada R$10,00)</label>
+          <input type="number" placeholder="Valor em reais" value="10">
+          <label>Validade dos pontos (em meses)</label>
+          <input type="number" value="6">
+          <button type="submit">Salvar Regras</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSecao(id) {
+      document.querySelectorAll('.secao').forEach(secao => {
+        secao.classList.remove('ativa');
+      });
+      document.getElementById(id).classList.add('ativa');
+    }
+  </script>
+</body>
+</html>

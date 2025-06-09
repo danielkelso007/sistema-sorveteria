@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Funcionário - Sorveteria</title>
+  <link rel="stylesheet" href="funcionario.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo(a), Funcionário 👨‍🍳</h1>
+
+    <div class="menu">
+      <button onclick="mostrarSecao('pedido')">Novo Pedido</button>
+      <button onclick="mostrarSecao('estoque')">Estoque</button>
+    </div>
+
+    <div class="conteudo">
+      <section id="pedido" class="secao ativa">
+        <h2>Novo Pedido</h2>
+        <form>
+          <label for="cliente">Nome do Cliente:</label>
+          <input type="text" id="cliente" required>
+
+          <label for="sabor">Sabor:</label>
+          <select id="sabor">
+            <option>Chocolate</option>
+            <option>Morango</option>
+            <option>Baunilha</option>
+            <option>Menta</option>
+          </select>
+
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" id="quantidade" min="1" value="1">
+
+          <label for="pagamento">Forma de Pagamento:</label>
+          <select id="pagamento">
+            <option>Dinheiro</option>
+            <option>Cartão</option>
+            <option>Pix</option>
+          </select>
+
+          <button type="submit">Registrar Pedido</button>
+        </form>
+      </section>
+
+      <section id="estoque" class="secao">
+        <h2>Estoque de Produtos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Sabor</th>
+              <th>Quantidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Chocolate</td><td>20</td></tr>
+            <tr><td>Morango</td><td>15</td></tr>
+            <tr><td>Baunilha</td><td>10</td></tr>
+            <tr><td>Menta</td><td>8</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSecao(id) {
+      document.querySelectorAll('.secao').forEach(secao => {
+        secao.classList.remove('ativa');
+      });
+      document.getElementById(id).classList.add('ativa');
+    }
+  </script>
+</body>
+</html>
